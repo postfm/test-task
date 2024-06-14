@@ -1,20 +1,10 @@
 import { Module } from '@nestjs/common';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
-import { AmoModule } from 'amocrm-nestjs';
+import { HttpModule } from '@nestjs/axios';
 
 @Module({
-  imports: [
-    AmoModule.forRoot({
-      href: 'https://***.amocrm.ru/',
-      client_id: '***-***-***-***-***',
-      client_secret: '***',
-      redirect_uri: 'https://***.amocrm.ru/',
-      code: '***',
-      access_token: '***',
-      refresh_token: '***',
-    }),
-  ],
+  imports: [HttpModule],
   controllers: [AppController],
   providers: [AppService],
 })
